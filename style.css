@@ -88,15 +88,11 @@ section{
     align-items: center;
 
 }
-.main h2{
-    color: rgb(221, 239, 243);
-    font-size: 1.4em;
-    font-weight: 500;
-}
+
 .main h2 span{
     display: inline-block;
     margin-top: 10px;
-    color: rgb(255, 255, 255);
+    color: rgb(201, 114, 15);
     font-size: 3em;
     font-weight: 600;
 }
