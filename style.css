@@ -268,11 +268,7 @@ padding-right: 10px;
 
 
 }
-.footer .social a{
-font-size: 1.2em;
-padding: 4 12px 0 0;
-color: black;
-}
+
 @media (max-width: 1023px) {
     header{
         padding: 12px 20px;
@@ -319,12 +315,64 @@ color: black;
         font-size: 1.4em;
     }
 }
-// Body - Margin Reset
-body { margin: 0; }
 
-// Section
-section { opacity: 0; transition: all linear 1s; width: 100%; height: 80px; transform: translateX(-200px);
-  
-  // Section Visible  
-  &.visible { opacity: 1; transform: translateX(0);}
+
+
+
+ul {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
 }
+
+ul li {
+    position: relative;
+    width: 5em;
+    height: 5em;
+    margin: 0 .75em;
+    border: .40em solid;
+    border-radius: 50%;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+ul li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: .85em;
+    color: black;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+/*// FACEBOOK //*/
+ul li:hover:nth-child(1) {
+    background: #3b5998;
+}
+
+/*// TWITTER //*/
+ul li:hover:nth-child(2) {
+    background: #00aced;
+}
+
+/*// LINKEDIN //*/
+ul li:hover:nth-child(3) {
+    background: #0077B5;
+}
+
+/*// GITHUB //*/
+ul li:hover:nth-child(4) {
+    background: #333;
+}
+
+/*// INSTAGRAM //*/
+ul li:hover:nth-child(5) {
+    background: #dd2a7b;
+}
+
+
+
+
