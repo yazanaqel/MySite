@@ -91,16 +91,10 @@ section{
 
 }
 
-.main h2 span{
-    display: inline-block;
-    margin-top: 10px;
-    color: rgb(201, 114, 15);
-    font-size: 3em;
-    font-weight: 600;
-}
-.main h3{
+.main h2{
+    
     color: rgb(255, 255, 255);
-    font-size: 2em;
+    font-size: 3em;
     font-weight: 720;
     letter-spacing: 1px;
     margin-top: 10px;
