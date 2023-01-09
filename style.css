@@ -94,7 +94,9 @@ section{
 .main h2{
     
     color: rgb(255, 255, 255);
-    font-size: 6em;
+
+    font-size: 4em;
+
     font-weight: 720;
     letter-spacing: 1px;
     margin-top: 10px;
