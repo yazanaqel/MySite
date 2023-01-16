@@ -6,40 +6,252 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
     
 
 }
 
-header{
-    background-color: #4d4d4d;
-    width: 100%;
+/*--------------------------------------*/
+/*    Contains Header, Nav, & Logo      */
+/*--------------------------------------*/
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 40px;
+
+ 
+}
+
+
+/*--------------------------------------*/
+/* HEADER: Position relative to help... */
+/*    ... poitioning elements absolute  */
+/*--------------------------------------*/
+
+header {
+    background: #4d4d4d;
     position: fixed;
-    z-index: 999;
     display: flex;
-    justify-content: space-between;
+    z-index: 999;
+    width: 100%;
     align-items: center;
-    padding: 10px 200px;
+ 
 }
-.logo{
-    text-decoration:none;
+
+/*------------------------------------------*/
+/* Allows multiple floats in same element   */
+/*------------------------------------------*/
+
+header::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/*--------------------------------------*/
+/*               LOGO                   */
+/*--------------------------------------*/
+
+.logo #logo-first {                  /* Effects the whole logo, but #logo-last has changes */
+    float: left;                    /* Starting position of "JASON" for logo */
     color: #00b3b3;
+    font-size: 2rem;
+    margin: 0;
     text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.8em;
+    font-weight: 800;
 }
-.navigation a{
 
-    text-decoration:none;
+.logo #logo-last {      /* Changes to the logo for "SUTTON", This is starting Position */
+    float: left;
+    font-weight: 300;
+    font-size: 2rem;
+    color: #f2f2f2;
+    padding-bottom: 20px;
+}
+
+.logo:hover #logo-last {    /* Logo colors switch on hover */
+    margin: 0;
     color: #00b3b3;
-    font-weight: 500;
-    font-size: 1.1em;
-    padding-left: 30px;
+}
+
+.logo:hover #logo-first {     /* Logo colors switch on hover */
+    margin: 0;
+    padding-bottom: 20px;
+    color: #f2f2f2;
+}
+
+/*--------------------------------------*/
+/*            Navigation                */
+/*--------------------------------------*/
+.site-nav {
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    background: #a6a6a6;
+    height: 0px;
+    overflow: hidden;
+}
+
+.site-nav-open {
+    height: auto;
+}
+
+.site-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;  /* Removes li bullets */
+}
+
+.site-nav li {
+    border-bottom: 1px solid #8c8c8c;  /* border beneath nav li */
+}
+
+.site-nav li:last-child {     /* removes border from last nav li */
+    border: none;
+}
+
+.site-nav a {            /* Displays nav links as block for smaller screens */
+    color: #f2f2f2;
+    display: block;
+    padding: 2em 2em 2em 1.5em;  /* padding for links */
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.site-nav a:hover,         /* hover is for computers and focus is for mobile */
+.site-nav a:focus {
+    background: #00b3b3;
+    color: #4d4d4d;
+}
+
+/*--------------------------------------*/
+/*   ICON styling for smaller screens   */
+/*--------------------------------------*/ 
+
+.site-nav-icon  {
+    display: inline-block;   /* allows margin changes */
+    font-size: 1.5em;
+    margin-right: 1em;
+    width: 1em;           /* width lines the icons up */
+    text-align: right;  
+    color: rgba(255, 255, 255, .35);  /* white with low opacity to make icons less bright */
+}
+
+/*--------------------------------------*/
+/* Acts as btn & contains hamburger     */
+/*--------------------------------------*/
+
+.menu-toggle {
+    padding: 1em;
+    position: absolute;
+    top: 1.7em;
+    right: 1em;
+    cursor: pointer;
+}
+
+
+/*--------------------------------------*/
+/*   Styles the hamburger for btn       */
+/*--------------------------------------*/
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content:'';
+    display: block;
+    background: #00b3b3;
+    height: 3px;
+    width: 1.75em;
+    border-radius: 2px;
+    transition: all ease-in-out 500ms;
+}
+
+/*--------------------------------------*/
+/* Instance of hamburger (top line)     */
+/*--------------------------------------*/
+
+.hamburger::before {
+    transform: translateY(-7px);
+}
+
+/*--------------------------------------*/
+/* Instance of hamburger bottom line    */
+/*--------------------------------------*/
+
+.hamburger::after {
+    transform: translateY(4px);
+}
+
+/*--------------------------------------*/
+/* When Nav menu is open, hamburger = X */
+/*--------------------------------------*/
+
+.open .hamburger {
+    transform: rotate(45deg);
+    background: #00b3b3;
+}
+
+/*--------------------------------------*/
+/* Before hamburger line is invisible   */
+/*--------------------------------------*/
+.open .hamburger::before {
+    opacity: 0;            
+}
+
+/*--------------------------------------*/
+/* Animates after line to create an X   */
+/*--------------------------------------*/
+.open .hamburger::after {
+    transform: translateY(-3px) rotate(-90deg);
+    background: #00b3b3;
+}
+
+
+
+
+/*--------------------------------------*/
+/*    For Device (Screens > 700px )     */
+/*--------------------------------------*/
+@media (min-width:850px) {
+
+    .menu-toggle {       /* Removes hamburger menu */
+        display: none;
+    }
+
+    .site-nav {         /* Positions site nav & removes background color */
+        height: auto;
+        position: relative;
+        background: transparent;
+        float: right;
+        font-weight: 300;
+    }
+
+    .site-nav li {               /* inline-block and removes border from bottom */
+        display: inline-block;
+        border: none;
+    }
+
+    .site-nav a {       /* Adds spacing between Nav links */
+        padding: 0;
+        margin-left: 3em;
+    }
+
+    .site-nav a:hover,      /* Makes link background transparent on hover */
+    .site-nav a:focus {        /* Changes font color to light blue */
+        background: transparent;
+        font-weight: 800;
+        color: #00b3b3;
+    }
+
+    .site-nav .site-nav-icon {     /* Removes Font Awesome Icons for larger screens */
+        display: none;
+    }
 
 }
-.navigation a:hover{
-    color: rgb(255, 255, 255);
-}
+
+
 section{
     padding: 100px 200px;
 
@@ -275,7 +487,7 @@ padding-right: 10px;
     color: rgb(0, 0, 0);
 }
 .card{
-    background-color: #4d4d4d;
+    background-color: #4d4d4db0;
 }
 
 .content .icon {
@@ -303,6 +515,7 @@ padding-right: 10px;
     color: rgba(0, 0, 0, 0.911);
 
 }
+
 .f-title span{
  color: #00b3b3;
 
@@ -314,23 +527,15 @@ padding: 4 12px 0 0;
 color: black;
 }
 @media (max-width: 1023px) {
-    header{
-        padding: 12px 20px;
-    }
-    .navigation a{
-        padding-left: 10px;
-    }
+
     .title{
         font-size: 1.8em;
     }
     section{
         padding: 80px 20px;
     }
-    .main h2{
-        font-size: 1em;
-    }
-    .main h3{
-        font-size: 1.6em;
+    .main h1{
+        font-size: 3em;
     }
     .content{
         flex-direction: column;
@@ -341,21 +546,16 @@ color: black;
     body{
         font-size: 12px;
     }
-    .main h2{
-        font-size: 0.8em;
+    .main h1{
+        font-size: 2em;
     }
-    .main h3{
-        font-size: 1.4em;
-    }
+
 }
 @media (max-width: 300px) {
     body{
         font-size: 10px;
     }
-    .main h2{
-        font-size: 0.8em;
-    }
-    .main h3{
-        font-size: 1.4em;
+    .main h1{
+        font-size: 1em;
     }
 }
